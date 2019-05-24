@@ -1,0 +1,81 @@
+<!--pages/Exercises/Exercises.wxml-->
+<view class='Exercises'>
+  <view class='Pattern fx'> 
+    <view class='Pattern_l Pattern_active fxj'>答题模式</view>
+    <view class='Pattern_r fxj'>复习模式</view>
+  </view>
+  <view class='subject'>
+    <view class='fo'>
+      <view class='subject_ico fl'>单选</view>
+      <view class='fr'>
+        <view class='subject_text'>
+            <!-- 图是一个大型电影院的总平面布置，其中符合规定的布置是: (2005- -88) (2010- -49) -->
+            {{testnum[0].e_issue}}
+        </view>
+        <view class='answer fo'>
+          <!-- <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}">
+              <radio value="{{item.name}}" checked="{{item.checked}}" />
+              {{item.value}}
+            </label>
+          </radio-group> -->
+          <view class='answer_li fl'>
+            <text class='answer_list'>A</text>
+            <text class='answer_list_text'>{{testnum[0].e_a}}</text>
+          </view>
+          <view class='answer_li fl'>
+            <text class='answer_list'>B</text>
+            <text class='answer_list_text'>{{testnum[0].e_b}}</text>
+          </view>
+          <view class='answer_li fl'>
+            <text class='answer_list'>C</text>
+            <text class='answer_list_text'>{{testnum[0].e_c}}</text>
+          </view>
+          <view class='answer_li fl'>
+            <text class='answer_list'>D</text>
+            <text class='answer_list_text'>{{testnum[0].e_d}}</text>
+          </view>
+        </view>
+        <view class='Explain'>
+          <text class='Explain_tile'>说明:</text>
+          <view class='Explain_text'>
+            <!-- 可行性研究的内容包括总论;市场预测;资源条件评价;建设规
+            模与产品方案;厂址选择;技术方案、设备方案和工程方案;主
+            要原材料、燃料供应; 总图布置、场内外运输与公用辅助工
+            程;能源和资源节约措施;环境影响评价;劳动安全卫生与消防
+            ;组织机构与人力资源配置;项目实施进度;投资估算;融资方案
+            ;项目的经济评价;社会评价;风险分析;研究结论与建议。 -->
+            {{testnum[0].e_explain}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='height:126rpx;'></view>
+  <view class='operation'>
+    <view class='operation_top'>
+      <text>上一题</text>
+      <text>下一题</text>
+    </view>
+    <view class='operation_bot fx'>
+      <view class='fx operation_list_l'>
+        <view class='ico_img'><image src='../../images/ico_03.png'></image></view>
+        <view>收藏</view>
+      </view>
+      <view class='fx operation_list_r'>
+        <view class='fxj operation_li'>
+          <view class='ico_img'><image src='../../images/ico_06.png'></image></view>
+          <view>0</view>
+        </view>
+        <view class='fxj operation_li'>
+          <view class='ico_img'><image src='../../images/ico_08.png'></image></view>
+          <view class='operation_red'>0</view>
+        </view>
+        <view class='fxj operation_li'>
+          <view class='ico_img'><image src='../../images/ico_10.png'></image></view>
+          <view>1/{{classnum}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

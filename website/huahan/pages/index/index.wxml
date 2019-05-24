@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class='course'>
+  <view class='course_content fx xx'>
+    <view wx:for="{{hualian}}" wx:key='index' data-t_id='{{item.t_id}}' class='course_content_li' catchtap='goourdetaile' >
+      <view class='course_content_img'><image src='../../images/course_03.png'></image></view>
+      <view class='course_name'>《{{item.t_name}}》</view>
+    </view>
+    <!-- <view class='course_content_li' >
+      <view class='course_content_img' bindtap='goourdetaile'><image src='../../images/course_05.png'></image></view>
+      <view class='course_name' bindtap='goourdetaile'>《建筑材料与构造》</view>
+    </view>
+    <view class='course_content_li' >
+      <view class='course_content_img' bindtap='goourdetaile'><image src='../../images/course_09.png'></image></view>
+      <view class='course_name' bindtap='goourdetaile'>《建筑前期与场地设计》</view>
+    </view>
+    <view class='course_content_li' >
+      <view class='course_content_img' bindtap='goourdetaile'><image src='../../images/course_10.png'></image></view>
+      <view class='course_name' bindtap='goourdetaile'>《建筑施工与业务管理》</view>
+    </view>
+    <view class='course_content_li' >
+      <view class='course_content_img' bindtap='goourdetaile'><image src='../../images/course_13.png'></image></view>
+      <view class='course_name' bindtap='goourdetaile'>《建筑结构》</view>
+    </view>
+    <view class='course_content_li'>
+      <view class='course_content_img' bindtap='goourdetaile'><image src='../../images/course_14.png'></image></view>
+      <view class='course_name' bindtap='goourdetaile'>《建筑设计知识题库》</view>
+    </view> -->
+  </view>
+</view>

@@ -1,0 +1,118 @@
+/* pages/Exercises/Exercises.wxss */
+page{
+  background: #f5f5f5;
+}
+/*head*/
+.Pattern{
+  width: 300rpx;
+  margin: 30rpx auto;
+  font-size: 30rpx;
+}
+.Pattern view{
+  width: 45%;
+  height: 70rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  background: #1dadfa;
+}
+.Pattern_active{
+  color: #1dadfa!important;
+  background: #fff!important;
+  border: 1px solid #1dadfa;
+}
+
+/*content*/
+.subject{
+  margin: 20rpx;
+}
+.subject_ico{
+  width: 95rpx;
+  background: #1dadfa;
+  border-radius: 30rpx 0 30rpx 0;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 8rpx 0;
+  text-align: center;
+}
+.subject .fr{
+  width: 610rpx;
+}
+.subject_text{
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1.4;
+}
+/*answer*/
+.answer{
+  margin: 40rpx 0 0 0;
+}
+.answer_list{
+  border: 1rpx solid #e1e1e1;
+  border-radius: 50%;
+  font-size: 34rpx;
+  width: 80rpx;
+  height: 80rpx;
+  display: inline-block;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 0 20rpx 20rpx 0;
+}
+.answer_list_text{
+  width: 195rpx;
+  font-size: 26rpx;
+  color: #333;
+  display: inline-block;
+}
+
+/*Explain*/
+.Explain_tile{
+  color: #333;
+  font-size: 32rpx;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.Explain_text{
+  font-size: 26rpx;
+  line-height: 1.4;
+  color: #666;
+  margin: 20rpx 0;
+}
+
+/*operation*/
+.operation{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+}
+.operation_top{
+  border-bottom: 1rpx solid #e8e8e8;
+  text-align: right;
+  padding: 0 0 15rpx 0;
+}
+.operation_top text{
+  color: #e6943e;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 0 20rpx 10rpx 0;
+}
+.ico_img image{
+  width: 32rpx;
+  height: 32rpx;
+  margin: 0 10rpx 0 0;
+}
+.operation_bot{
+  font-size: 28rpx;
+  margin: 30rpx 20rpx;
+}
+.operation_list_r{
+  width: 60%;
+}
+.operation_li{
+  width: 30%;
+  text-align: center;
+}
+.operation_red{
+  color: #f00;
+}

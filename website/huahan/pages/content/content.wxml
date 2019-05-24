@@ -1,0 +1,97 @@
+<!--pages/content/content.wxml-->
+<view class='banner'>
+  <image src='../../images/cot_02.png'></image>
+</view>
+<view class='content'>
+  <view class='fx content_top'>
+    <view class='content_top_li '>
+      <view class='content_top_text fxj'>
+        <view>
+          <text>顺序练习</text>
+          <text>0/{{classnum}}</text>
+        </view>
+      </view>
+      <view class='content_top_img'><image src='../../images/cot_05.png'></image></view>
+    </view>
+    <view class='content_top_li '>
+      <view class='content_top_text fxj'>
+        <view>
+          <text>模拟考试</text>
+          <text>100%仿真</text>
+        </view>
+      </view>
+      <view class='content_top_img'><image src='../../images/cot_07.png'></image></view>
+    </view>
+  </view>
+  <view class='fx content_list'>
+    <view class='content_li'>
+      <view class='fxj' ><image src='../../images/cot_12.png' bindtap='gorandompractice'></image></view>
+      <view class='fxj content_li_text' bindtap='gorandompractice'>随机练习</view>
+    </view>
+    <view class='content_li'>
+      <view class='fxj'><image src='../../images/cot_15.png' ></image></view>
+      <view class='fxj content_li_text'>我的收藏</view>
+    </view>
+    <view class='content_li'>
+      <view class='fxj'><image src='../../images/cot_17.png'></image></view>
+      <view class='fxj content_li_text'>我的错题</view>
+    </view>
+    <view class='content_li'>
+      <view class='fxj'><image src='../../images/cot_19.png'></image></view>
+      <view class='fxj content_li_text'>考试记录</view>
+    </view>
+    <view class='content_li'>
+      <view class='fxj'><image src='../../images/cot_21.png'></image></view>
+      <view class='fxj content_li_text'>排行榜</view>
+    </view>
+  </view>
+</view>
+<view class='Statistics'>
+  <view class='Statistics_top fxs'> 
+    <image src='../../images/cot_29.png' class='ico_img'></image>
+    <text>统计</text>
+  </view>
+  <view class='Statistics_content'>
+    <view class='fx Statistics_t'>
+      <view class='Statistics_t_li'>
+        <view style='color:#53aefe;'class='Statistics_b_number'>{{classnum}}/道</view>
+        <view>题库题目总数</view>
+      </view>
+      <view class='Statistics_t_li'>
+        <view style='color:#3ecab9;'class='Statistics_b_number'>{{classnum}}/道</view>
+        <view>已做题目</view>
+      </view>
+      <view class='Statistics_t_li'>
+        <view style='color:#ee7567;' class='Statistics_b_number'>{{classnum}}/道</view>
+        <view>错题库</view>
+      </view>
+    </view>
+    <view class='fx Statistics_b'>
+      <view class='Statistics_b_li'>
+        <view class='Statistics_b_number' style='color:#659bf7;'>63</view>
+        <view>收藏夹</view>
+      </view>
+      <view class='Statistics_b_li'>
+        <view class='Statistics_b_number' style='color:#ff0101;'>100%</view>
+        <view >正确率</view>
+      </view>
+    </view>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section section_gap fx">
+      <view class="section__title">重置题库（消除做题记录）</view>
+      <switch name="switch" />
+    </view>
+    <!-- <view class="btn-area">
+      <button form-type="submit">Submit</button>
+    </view> -->
+  </form>
+
+</view>
+<view class='Statistics_top fx'>
+  <view class='fxs'>
+    <image src='../../images/cot_33.png' class='ico_img'></image>
+    <text>题库设计</text>
+  </view> 
+  <image src='../../images/icox_03.png'  class='ico_imgr'></image>
+</view>

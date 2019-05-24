@@ -1,0 +1,10 @@
+/**app.wxss**/
+.fo{overflow: hidden;}
+.fl{float:left;}
+.fr{float:right;}
+.fx1{display: flex;justify-content: space-between;}
+.fx{display: flex;justify-content: space-between;align-items: center;}
+.fxj{display: flex;justify-content: center;align-items: center;}
+.fxs{display: flex;justify-content: flex-start;align-items: center;}
+.fxr{display: flex;justify-content: space-around;align-items: center;}
+.xx{flex-wrap: wrap;}
