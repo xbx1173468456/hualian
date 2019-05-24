@@ -5,22 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    testnum:[],
-    classnum:0,
-    _testnum:{},
+    testnum:[],/**获取的数据 */
+    classnum:0,/**获取数据的个数 */
+    _testnum:{},/**每个参数对象 */
     num:0,
-    // items: [
-    //   { name: 'USA', value: '美国' },
-    //   { name: 'CHN', value: '中国', checked: 'true' },
-    //   { name: 'BRA', value: '巴西' },
-    //   { name: 'JPN', value: '日本' },
-    //   { name: 'ENG', value: '英国' },
-    //   { name: 'TUR', value: '法国' },
-    // ]
   },
-  // radioChange(e) {
-  //   console.log('radio发生change事件，携带value值为：', e.detail.value)
-  // },
   /**
    * 定义试题前进后退
    */
@@ -63,26 +52,18 @@ Page({
         var dataissue=res.data;
         for(var i=0;i<dataissue.length;i++){
           var issue=dataissue[i].e_issue;
-          var datanum = issue.split(/<p>/g);
+          var datanum = issue.split(/<p>/);
           datanum=datanum[1];
-          datanum=datanum.split(/<\/p>/g);
-          issue=datanum[0];
+          console.log(typeof(datanum));
+          datanum=datanum.split(/<\/p>/);
+          console.log(datanum);
+          dataissue[i].e_issue=datanum[0];
         }
-        console.log(dataissue);
-        console.log(issue);
         this.setData({
-          testnum: res.data,
-          classnum: res.data.length,
-          _testnum: res.data[numb]
+          testnum:dataissue,
+          classnum: dataissue.length,
+          _testnum: dataissue[numb]
         })
-          // console.log(_testnum);
-        // var datanum = testnum[0].e_issue;
-        // var num=datanum.split(/<p>/g);
-        // num=num[1];
-        // num=num.split(/<\/p>/g);
-        // num=num[0];
-        // console.log(num);
-        // console.log(this.data.testnum[0].e_issue);
       }
     })
   },
