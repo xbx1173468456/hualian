@@ -31,6 +31,7 @@ Page({
           testarr:res.data,
           classnum:res.data.length,
         })
+        console.log(this.data.classnum);
       }
     })
   },
