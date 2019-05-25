@@ -1,4 +1,5 @@
 // pages/Exercises/Exercises.js
+const app=getApp();
 Page({
 
   /**
@@ -9,41 +10,36 @@ Page({
     classnum:0,
     _testnum:{},
     num:0,
-    // items: [
-    //   { name: 'USA', value: '美国' },
-    //   { name: 'CHN', value: '中国', checked: 'true' },
-    //   { name: 'BRA', value: '巴西' },
-    //   { name: 'JPN', value: '日本' },
-    //   { name: 'ENG', value: '英国' },
-    //   { name: 'TUR', value: '法国' },
-    // ]
   },
-  // radioChange(e) {
-  //   console.log('radio发生change事件，携带value值为：', e.detail.value)
-  // },
-  /**
-   * 定义试题前进后退
-   */
-  jumpprev:function(){
-    var numbe=this.data.num;
-    var testnum=this.data.testnum;
-    var _testnum = this.data._testnum
-    if(numbe>0){
-      numbe--;
-    }
-    this.setData({
-      num:numbe,
-      _testnum: testnum[numbe]
-      })
-    console.log(_testnum);
+  //获取数据成功
+  successFun: function (res, selfObj) {
+    var numb = this.data.num;
+    console.log(res);
+    var data=res[numb];
+    var answer=[
+      {clas:'A',e_answer:data.e_a},
+      {clas:'B',e_answer:data.e_b},
+      {clas:'C',e_answer:data.e_c},
+      {clas:'D',e_answer:data.e_d}
+      ];
+    selfObj.setData({
+      testnum: answer,
+      classnum: res.length,
+      _testnum: res[numb]
+    })
+    console.log(this.data.testnum);
   },
-
-  jumpnext:function(){
+//下一题和上一题的事件
+  jumpenter:function(e){
     var numbe = this.data.num;
     var testnum = this.data.testnum;
-    var _testnum=this.data._testnum
-    if(numbe>=0 && numbe<testnum.length){
+    var _testnum=this.data._testnum;
+    var pid = e.currentTarget.dataset.pid;
+    console.log(pid);
+    if(pid==2 && numbe<testnum.length){
       numbe++;
+    }else if(numbe>0 && pid==1){
+      numbe--
     }
       this.setData({
         num:numbe,
@@ -56,35 +52,11 @@ Page({
    */
   onLoad: function (options) {
     var tid=options.t_id;
-    var numb=this.data.num;
-    wx.request({
-      url: 'http://c27.yidongwei.com/exam/getExam?t_id='+tid,
-      success:(res)=>{
-        var dataissue=res.data;
-        for(var i=0;i<dataissue.length;i++){
-          var issue=dataissue[i].e_issue;
-          var datanum = issue.split(/<p>/g);
-          datanum=datanum[1];
-          datanum=datanum.split(/<\/p>/g);
-          issue=datanum[0];
-        }
-        console.log(dataissue);
-        console.log(issue);
-        this.setData({
-          testnum: res.data,
-          classnum: res.data.length,
-          _testnum: res.data[numb]
-        })
-          // console.log(_testnum);
-        // var datanum = testnum[0].e_issue;
-        // var num=datanum.split(/<p>/g);
-        // num=num[1];
-        // num=num.split(/<\/p>/g);
-        // num=num[0];
-        // console.log(num);
-        // console.log(this.data.testnum[0].e_issue);
-      }
-    })
+    var url =app.apiUrl + '/exam/getExam';
+    var params={
+      t_id:tid
+    }
+    app.request.requestGetApi(url, params, this, this.successFun, this.failFun)
   },
 
   /**

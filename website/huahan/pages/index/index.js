@@ -19,7 +19,7 @@ Page({
  
   onLoad: function () {
     wx.request({
-      url: 'http://c27.yidongwei.com/exam/getItemType',
+      url: app.apiUrl+'/exam/getItemType',
       success: (res) => {
         this.setData({
           hualian:res.data,

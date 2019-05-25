@@ -11,7 +11,15 @@ Page({
     testarr:[],
     t_id:0,
   },
-  
+  //获取数据成功
+  successFun:function(res,selfObj){
+    selfObj.setData({
+          testarr:res,
+          classnum:res.length,
+        })
+  },
+
+
   // formSubmit(e) {
   //   console.log('form发生了submit事件，携带数据为：', e.detail.value)
   // },
@@ -24,20 +32,14 @@ Page({
   onLoad: function (options) {
     this.data.t_id=options.t_id;
     var tid=this.data.t_id;
-    wx.request({
-      url: 'http://c27.yidongwei.com/exam/getExam?t_id='+tid,
-      success:(res)=>{
-        this.setData({
-          testarr:res.data,
-          classnum:res.data.length,
-        })
-        console.log(this.data.classnum);
-      }
-    })
+    var url = app.apiUrl + '/exam/getExam';
+    var params={
+      t_id:tid
+    };
+  app.request.requestGetApi(url,params,this,this.successFun,this.failFun);
   },
   gorandompractice:function(){
     var tid=this.data.t_id;
-    console.log(tid)
     wx.navigateTo({
       url: "../Exercises/Exercises?t_id="+tid,
     })

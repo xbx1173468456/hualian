@@ -9,8 +9,7 @@
       <view class='subject_ico fl'>单选</view>
       <view class='fr'>
         <view class='subject_text'>
-            <!-- 图是一个大型电影院的总平面布置，其中符合规定的布置是: (2005- -88) (2010- -49) -->
-            {{_testnum.e_issue}}
+            {{_testnum.e_outline}}
         </view>
         <view class='answer fo'>
           <!-- <radio-group class="radio-group" bindchange="radioChange">
@@ -20,31 +19,25 @@
             </label>
           </radio-group> -->
           <view class='answer_li fl'>
-            <text class='answer_list'>A</text>
+            <text catchtap='selectenter' class='answer_list'>A</text>
             <text class='answer_list_text'>{{_testnum.e_a}}</text>
           </view>
           <view class='answer_li fl'>
-            <text class='answer_list'>B</text>
+            <text catchtap='selectenter' class='answer_list'>B</text>
             <text class='answer_list_text'>{{_testnum.e_b}}</text>
           </view>
           <view class='answer_li fl'>
-            <text class='answer_list'>C</text>
+            <text catchtap='selectenter' class='answer_list'>C</text>
             <text class='answer_list_text'>{{_testnum.e_c}}</text>
           </view>
           <view class='answer_li fl'>
-            <text class='answer_list'>D</text>
+            <text catchtap='selectenter' class='answer_list'>D</text>
             <text class='answer_list_text'>{{_testnum.e_d}}</text>
           </view>
         </view>
         <view class='Explain'>
           <text class='Explain_tile'>说明:</text>
           <view class='Explain_text'>
-            <!-- 可行性研究的内容包括总论;市场预测;资源条件评价;建设规
-            模与产品方案;厂址选择;技术方案、设备方案和工程方案;主
-            要原材料、燃料供应; 总图布置、场内外运输与公用辅助工
-            程;能源和资源节约措施;环境影响评价;劳动安全卫生与消防
-            ;组织机构与人力资源配置;项目实施进度;投资估算;融资方案
-            ;项目的经济评价;社会评价;风险分析;研究结论与建议。 -->
             {{_testnum.e_explain}}
           </view>
         </view>
@@ -54,8 +47,8 @@
   <view style='height:126rpx;'></view>
   <view class='operation'>
     <view class='operation_top'>
-      <text catchtap='jumpprev'>上一题</text>
-      <text catchtap='jumpnext'>下一题</text>
+      <text data-pid='1' catchtap='jumpenter'>上一题</text>
+      <text data-pid='2' catchtap='jumpenter'>下一题</text>
     </view>
     <view class='operation_bot fx'>
       <view class='fx operation_list_l'>
@@ -73,7 +66,7 @@
         </view>
         <view class='fxj operation_li'>
           <view class='ico_img'><image src='../../images/ico_10.png'></image></view>
-          <view>1/{{classnum}}</view>
+          <view>{{num}}/{{classnum}}</view>
         </view>
       </view>
     </view>
