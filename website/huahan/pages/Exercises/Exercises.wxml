@@ -12,17 +12,12 @@
             {{_testnum.e_outline}}
         </view>
         <view class='answer fo'>
-          <!-- <radio-group class="radio-group" bindchange="radioChange">
-            <label class="radio" wx:for="{{items}}">
-              <radio value="{{item.name}}" checked="{{item.checked}}" />
-              {{item.value}}
-            </label>
-          </radio-group> -->
-          <view class='answer_li fl'>
-            <text catchtap='selectenter' class='answer_list'>A</text>
-            <text class='answer_list_text'>{{_testnum.e_a}}</text>
+        
+          <view wx:for='{{answers}}' wx:key='index' class='answer_li fl'>
+            <text data-select='{{item.selects}}' data-eid='{{item.eid}}' catchtap='selectenter' class="{{select==item.queen && select==item.selects ? 'answer_right':''}} answer_list">{{item.selects}}</text>
+            <text class='answer_list_text'>{{item.answer}}</text>
           </view>
-          <view class='answer_li fl'>
+          <!-- <view class='answer_li fl'>
             <text catchtap='selectenter' class='answer_list'>B</text>
             <text class='answer_list_text'>{{_testnum.e_b}}</text>
           </view>
@@ -33,7 +28,7 @@
           <view class='answer_li fl'>
             <text catchtap='selectenter' class='answer_list'>D</text>
             <text class='answer_list_text'>{{_testnum.e_d}}</text>
-          </view>
+          </view> -->
         </view>
         <view class='Explain'>
           <text class='Explain_tile'>说明:</text>
@@ -58,11 +53,11 @@
       <view class='fx operation_list_r'>
         <view class='fxj operation_li'>
           <view class='ico_img'><image src='../../images/ico_06.png'></image></view>
-          <view>0</view>
+          <view>{{rightnum}}</view>
         </view>
         <view class='fxj operation_li'>
           <view class='ico_img'><image src='../../images/ico_08.png'></image></view>
-          <view class='operation_red'>0</view>
+          <view class='operation_red'>{{errornum}}</view>
         </view>
         <view class='fxj operation_li'>
           <view class='ico_img'><image src='../../images/ico_10.png'></image></view>

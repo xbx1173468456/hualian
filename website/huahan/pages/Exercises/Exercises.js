@@ -6,53 +6,64 @@ Page({
    * 页面的初始数据
    */
   data: {
-    testnum:[],/**获取的数据 */
-    classnum:0,/**获取数据的个数 */
-    _testnum:{},/**每个参数对象 */
-    num:0,
+    testnum:[],//每个类的所有数据
+    _testnum:{},//获取的单个数据对象
+    answers:[],//选择项的相关信息
+    classnum:0,//保存数据条数
+    num:0,//下标
+    rightnum:0,
+    errornum:0,
+    select:'',
+    eid:0,
   },
-<<<<<<< HEAD
   //获取数据成功
   successFun: function (res, selfObj) {
-    var numb = this.data.num;
-    console.log(res);
-    var data=res[numb];
-    var answer=[
-      {clas:'A',e_answer:data.e_a},
-      {clas:'B',e_answer:data.e_b},
-      {clas:'C',e_answer:data.e_c},
-      {clas:'D',e_answer:data.e_d}
-      ];
+    var _testnum=res[0];
+    var answers=[
+      { selects: 'A', answer: _testnum.e_a, queen: _testnum.e_true,eid:_testnum.e_id },
+      { selects: 'B', answer: _testnum.e_b, queen: _testnum.e_true,eid:_testnum.e_id },
+      { selects: 'C', answer: _testnum.e_c, queen: _testnum.e_true,eid:_testnum.e_id },
+      { selects: 'D', answer: _testnum.e_d, queen: _testnum.e_true,eid:_testnum.e_id },
+    ];
+    console.log(answers);
     selfObj.setData({
-      testnum: answer,
+      testnum: res,
       classnum: res.length,
-      _testnum: res[numb]
+      _testnum: _testnum,
+      eid:_testnum.e_id,
+      answers:answers
     })
-    console.log(this.data.testnum);
-=======
-  /**
-   * 定义试题前进后退
-   */
-  jumpprev:function(){
-    var numbe=this.data.num;
-    var testnum=this.data.testnum;
-    var _testnum = this.data._testnum
-    if(numbe>0){
-      numbe--;
-    }
-    this.setData({
-      num:numbe,
-      _testnum: testnum[numbe]
-      })
-    console.log(_testnum);
->>>>>>> b3208f52455ed13cfae60e669eb265b882141309
   },
+  //选择的按钮事件
+  selectenter:function(e){
+  var select=e.currentTarget.dataset.select;
+  var eid=e.currentTarget.dataset.eid;
+  var _testnum=this.data._testnum;
+  var eidd=this.data.eid;
+  var rightnums=this.data.rightnum;
+  var errornums=this.data.errornum;
+  // console.log(rightnum);
+  // console.log(errornum);
+  // console.log(_testnum);
+
+  if(select==_testnum.e_true && eidd==eid){
+    var rightnum=rightnum++;
+  }else{
+    var errornum=errornum++;
+  }
+  this.setData({
+    select,
+    rightnum,
+    errornum,
+    })
+  },
+
+
 //下一题和上一题的事件
   jumpenter:function(e){
     var numbe = this.data.num;
     var testnum = this.data.testnum;
-    var _testnum=this.data._testnum;
-    var pid = e.currentTarget.dataset.pid;
+    var pid = e.currentTarget.dataset.pid;//获取按钮的pid
     console.log(pid);
     if(pid==2 && numbe<testnum.length){
       numbe++;
@@ -61,44 +72,29 @@ Page({
     }
       this.setData({
         num:numbe,
-        _testnum: testnum[numbe]
-    })
-    console.log(_testnum);
+        _testnum:testnum[numbe],
+        answers:[
+          { selects: 'A', answer: testnum[numbe].e_a, queen:testnum[numbe].e_true,eid:testnum[numbe].e_id },
+          { selects: 'B', answer: testnum[numbe].e_b, queen:testnum[numbe].e_true,eid:testnum[numbe].e_id },
+          { selects: 'C', answer: testnum[numbe].e_c, queen:testnum[numbe].e_true,eid:testnum[numbe].e_id },
+          { selects: 'D', answer: testnum[numbe].e_d, queen:testnum[numbe].e_true,eid:testnum[numbe].e_id },
+        ],
+        select:'',
+        eid:testnum[numbe].e_id
+    });
+    // console.log(this.data.answers);
+    console.log(this.data._testnum);
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var tid=options.t_id;
-<<<<<<< HEAD
     var url =app.apiUrl + '/exam/getExam';
     var params={
       t_id:tid
     }
-    app.request.requestGetApi(url, params, this, this.successFun, this.failFun)
-=======
-    var numb=this.data.num;
-    wx.request({
-      url: 'http://c27.yidongwei.com/exam/getExam?t_id='+tid,
-      success:(res)=>{
-        var dataissue=res.data;
-        for(var i=0;i<dataissue.length;i++){
-          var issue=dataissue[i].e_issue;
-          var datanum = issue.split(/<p>/);
-          datanum=datanum[1];
-          console.log(typeof(datanum));
-          datanum=datanum.split(/<\/p>/);
-          console.log(datanum);
-          dataissue[i].e_issue=datanum[0];
-        }
-        this.setData({
-          testnum:dataissue,
-          classnum: dataissue.length,
-          _testnum: dataissue[numb]
-        })
-      }
-    })
->>>>>>> b3208f52455ed13cfae60e669eb265b882141309
+    app.request.requestGetApi(url, params, this, this.successFun, this.failFun);
   },
 
   /**
@@ -112,11 +108,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var numb = this.data.num;
-    var testnum=this.data.testnum;
-    this.setData({
-      // _testnum:testnum[numb]
-    })
+    
   },
 
   /**

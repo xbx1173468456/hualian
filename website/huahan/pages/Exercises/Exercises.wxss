@@ -63,7 +63,9 @@ page{
   color: #333;
   display: inline-block;
 }
-
+.answer_right{
+  background:rgb(38, 173, 140);
+}
 /*Explain*/
 .Explain_tile{
   color: #333;
