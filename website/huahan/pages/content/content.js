@@ -8,17 +8,30 @@ Page({
   data: {
     yearid:[],
     classnum:0,
+    classnums:0,
     testarr:[],
     t_id:0,
+    rightnum:0,
+    errornum:0,
+    ans:0,
   },
   //获取数据成功
   successFun:function(res,selfObj){
     selfObj.setData({
           testarr:res,
           classnum:res.length,
-        })
+        });
+        // console.log(res);
+    // var food={
+    //   classnum:res.length,
+    //   testarr:res,
+    //   errornum:0,
+    //   rightnum:0,
+    //   rtnum:0,
+    // };
+    //   wx.setStorageSync('food',food)
   },
-
+  
 
   // formSubmit(e) {
   //   console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -43,6 +56,12 @@ Page({
     wx.navigateTo({
       url: "../Exercises/Exercises?t_id="+tid,
     })
+    wx.getStorage({
+      key: 'food',
+      success: function(res) {
+        console.log(res);
+      },
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -55,7 +74,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var rightnum=this.data.rightnum;
+    var classnums=this.data.classnums;
+    if(rightnum>0&&classnums>0){
+      var ans=rightnum/classnums;
+      console.log(ans)
+          ans = app.returnFloat(30)
+    }
+    console.log(ans);
   },
 
   /**

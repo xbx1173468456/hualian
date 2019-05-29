@@ -66,6 +66,9 @@ page{
 .answer_right{
   background:rgb(38, 173, 140);
 }
+.answer_error{
+  background: #f00;
+}
 /*Explain*/
 .Explain_tile{
   color: #333;

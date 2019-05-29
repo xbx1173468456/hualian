@@ -8,7 +8,7 @@
       <view class='content_top_text fxj'>
         <view>
           <text>顺序练习</text>
-          <text>0/{{classnum}}</text>
+          <text>{{classnums}}/{{classnum-classnums}}</text>
         </view>
       </view>
       <view class='content_top_img'><image src='../../images/cot_05.png'></image></view>
@@ -58,11 +58,11 @@
         <view>题库题目总数</view>
       </view>
       <view class='Statistics_t_li'>
-        <view style='color:#3ecab9;'class='Statistics_b_number'>{{classnum}}/道</view>
+        <view style='color:#3ecab9;'class='Statistics_b_number'>{{classnums}}/道</view>
         <view>已做题目</view>
       </view>
       <view class='Statistics_t_li'>
-        <view style='color:#ee7567;' class='Statistics_b_number'>{{classnum}}/道</view>
+        <view style='color:#ee7567;' class='Statistics_b_number'>{{errornum}}/道</view>
         <view>错题库</view>
       </view>
     </view>
@@ -72,7 +72,7 @@
         <view>收藏夹</view>
       </view>
       <view class='Statistics_b_li'>
-        <view class='Statistics_b_number' style='color:#ff0101;'>100%</view>
+        <view class='Statistics_b_number' style='color:#ff0101;'>{{ans}}%</view>
         <view >正确率</view>
       </view>
     </view>
