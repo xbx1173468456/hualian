@@ -14,7 +14,7 @@
         <view class='answer fo'>
         
           <view wx:for='{{answers}}' wx:key='index' class='answer_li fl'>
-            <text data-select='{{item.selects}}' data-eid='{{item.eid}}' catchtap="selectenter" class="{{select==item.queen && select==item.selects ? 'answer_right':''}} answer_list">{{item.selects}}</text>
+            <text data-select='{{item.selects}}' data-eid='{{item.eid}}' catchtap="{{fn?'selectenter':''}}" class="{{select==item.queen && select==item.selects ? 'answer_right' : select!=item.queen && select==item.selects ?'answer_error' : item.selects==item.queen&&!fn ? 'answer_right' : ''}} answer_list">{{item.selects}}</text>
             <text class='answer_list_text'>{{item.answer}}</text>
           </view>
           <!-- <view class='answer_li fl'>

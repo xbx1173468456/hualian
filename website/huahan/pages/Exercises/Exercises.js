@@ -16,31 +16,33 @@ Page({
     select:'',
     eid:0,
     classnums:0,
-    flag:true
+    fn:true
   },
   
   //选择的按钮事件
   selectenter:function(e){
   var select=e.currentTarget.dataset.select;
+  console.log(select);
   var eid=e.currentTarget.dataset.eid;
   var _testnum=this.data._testnum;
   var eidd=this.data.eid;
   var rightnum=this.data.rightnum;
   var errornum=this.data.errornum;
-  var flag=this.data.flag;
- 
+  var fn=this.data.fn;
+
   if(select==_testnum.e_true && eidd==eid){
        rightnum++;
-       flag=false;
+       fn=false
   }else{
        errornum++;
-       flag=false
+       fn=false
   }
   this.setData({
     select,
     rightnum,
     errornum,
-    flag
+    flag:_testnum.e_true,
+    fn
     })
   },
 
